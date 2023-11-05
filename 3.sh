@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # OS upgrade point 3 orange pi 5 Armbaian OS
 # v3.0
