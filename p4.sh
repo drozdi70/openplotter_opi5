@@ -4,4 +4,5 @@ sudo apt-get install tightvncserver xterm -y
 sudo apt-get install tigervnc-tools -y
 touch ~/.Xresources
 cp vnc_start.sh /home/orangepi/work/
+mkdir /home/orangepi/.vnc/
 cp -f vnc_start.sh /home/orangepi/.vnc/
