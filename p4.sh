@@ -5,4 +5,4 @@ sudo apt-get install tigervnc-tools -y
 touch ~/.Xresources
 cp vnc_start.sh /home/orangepi/work/
 mkdir /home/orangepi/.vnc/
-cp -f vnc_start.sh /home/orangepi/.vnc/
+cp -f xstartup /home/orangepi/.vnc/
