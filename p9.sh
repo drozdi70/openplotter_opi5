@@ -24,6 +24,6 @@ sudo apt-get install mesa-utils libgl1-mesa-glx -y
 sudo apt-get install llvm llvm-dev -y
 cd ~/work/openplotter_opi5
 sudo dpkg -i ./virtualgl_3.1_arm64.deb
-echo "Please choose 1 and Y next..."
+echo "Please choose 1 and Y,Y,Y and X next..."
 sudo /opt/VirtualGL/bin/vglserver_config 
 sudo reboot
