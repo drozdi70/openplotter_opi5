@@ -19,11 +19,11 @@ sudo apt install libpulse-dev libgtk-3-dev -y
 rm -rf wxWidgets-staticlib
 rm -rf wxWidgets-3.2.2.1
 # download the widgets code
-wget https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.5/wxWidgets-3.1.5.tar.bz2
+wget https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.2.1/wxWidgets-3.2.2.1.tar.bz2
 # extract files from the compressed archive
 tar -xvjf wxWidgets-3.2.2.1.tar.bz2
 # change to the widgets folder
-cd wxWidgets-3.1.5
+cd wxWidgets-3.2.2.1
 # make the wxWidgets static library folder
 mkdir -p ~/Dev/wxWidgets-staticlib
 # run the build scripts
