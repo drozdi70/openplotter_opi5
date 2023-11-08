@@ -1,7 +1,7 @@
 ./2buildSoapy.sh
 ./4buildWidgets.sh
 sudo ldconfig
-./4buildWidgets_3.2.2.1.sh
+./4buildWidgets_3.2.3.sh
 sudo ldconfig
 cd ~/work
 git clone https://github.com/pothosware/SoapyRTLSDR.git
