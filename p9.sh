@@ -1,6 +1,6 @@
 sudo apt install libfftw3-dev libglfw3-dev libvolk2-dev libsoapysdr-dev libairspyhf-dev libiio-dev libad9361-dev librtaudio-dev libhackrf-dev -y
 sudo apt install libglew-dev libglu-dev libglu1-mesa-dev -y
-sudo apt install libvolk1-dev libglfw3-dev libglew-dev libairspyhf-dev libiio-dev libad9361-dev libairspy-dev librtlsdr-dev portaudio19-dev libzstd1 libzstd-dev limesuite gcc -y
+sudo apt install libglfw3-dev libglew-dev libairspyhf-dev libiio-dev libad9361-dev libairspy-dev librtlsdr-dev portaudio19-dev libzstd1 libzstd-dev limesuite gcc -y
 sudo apt-get update -y
 sudo apt-get install x11-xserver-utils -y
 sudo apt-get install libgl1-mesa-glx libegl1-mesa libgles2-mesa libgles2-mesa-dev -y
