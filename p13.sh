@@ -21,4 +21,6 @@ sudo pip3 install adafruit-circuitpython-ahtx0 --break-system-packages
 sudo pip3 install adafruit-circuitpython-htu21d --break-system-packages
 cd ~/work/openplotter_opi5
 cp -f blinka_test.py ..
+sudo mv /usr/local/lib/python3.11/dist-packages/adafruit_blinka/board/orangepi/orangepi5.py /usr/local/lib/python3.11/dist-packages/adafruit_blinka/board/orangepi/orangepi5.py.org
+sudo cp -f orangepi5.py  /usr/local/lib/python3.11/dist-packages/adafruit_blinka/board/orangepi/orangepi5.py
 sudo reboot
