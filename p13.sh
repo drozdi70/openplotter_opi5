@@ -18,6 +18,6 @@ pip3 install --upgrade adafruit-blinka adafruit-platformdetect
 pip3 install adafruit-circuitpython-ahtx0
 pip3 install adafruit-circuitpython-htu21d
 cd ~/work/openplotter_opi5
-cp -f blinka_test.py ../work
+cp -f blinka_test.py ..
 sudo reboot
 
