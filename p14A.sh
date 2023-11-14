@@ -20,13 +20,18 @@ sudo signalkPostInstall
 cd ~/work
 git clone https://github.com/steve-m/kalibrate-rtl.git
 sudo apt-get install libtool libfftw3-dev -y
-cd kal-v0.4.1
-./bootstrap && CXXFLAGS='-W -Wall -O3' ./configure && make
+cd kalibrate-rtl
+./bootstrap && CXXFLAGS='-W -Wall -O3' 
+./configure
+make 
+sudo make install
+sudo ldconfig
 cd ~/work
 git clone https://github.com/dgiardini/rtl-ais
 cd rtl-ais
 make
-sudo make ldconfig
+sudo make install
+sudo ldconfig
 # 
 sudo apt install gnome-menus desktop-file-utils mailcap -y
 sudo apt install kalibrate-rtl rtl-ais rtl-sdr python3-pip -y
