@@ -40,5 +40,6 @@ git clone https://github.com/openplotter/openplotter-sdr-vhf
 cd openplotter-sdr-vhf
 dpkg-buildpackage -b
 cd ..
-sudo dpkg -i openplotter-sdr-vhf_3.0.9-stable_all.deb
-sudo sdrVhfPostInstall
+#installation issue
+#sudo dpkg -i openplotter-sdr-vhf_3.0.9-stable_all.deb
+#sudo sdrVhfPostInstall
