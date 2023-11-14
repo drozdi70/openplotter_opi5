@@ -4,11 +4,9 @@ sudo pip3 install --upgrade setuptools
 sudo apt-get install -y python3-smbus python3-dev i2c-tools
 sudo adduser orangepi i2c
 sudo apt-get install -y python3 git python3-pip
-sudo apt-get install libgpiod2 python3-libgpiod
-sudo pip3 install gpiod 
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt install python3-pip
+sudo apt-get install libgpiod2 python3-libgpiod -y
+sudo pip3 install gpiod  -y
+sudo apt install python3-pip -y
 cd ~/work
 git clone https://github.com/orangepi-xunlong/wiringOP.git -b next
 cd wiringOP
