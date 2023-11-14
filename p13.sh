@@ -12,11 +12,11 @@ git clone https://github.com/orangepi-xunlong/wiringOP.git -b next
 cd wiringOP
 sudo ./build clean
 sudo ./build
-pip3 install adafruit-blinka
-pip3 install --upgrade adafruit-blinka adafruit-platformdetect
+sudo pip3 install adafruit-blinka
+sudo pip3 install --upgrade adafruit-blinka adafruit-platformdetect
 #sudo python3 -m pip install --force-reinstall adafruit-blinka
-pip3 install adafruit-circuitpython-ahtx0
-pip3 install adafruit-circuitpython-htu21d
+sudo pip3 install adafruit-circuitpython-ahtx0
+sudo pip3 install adafruit-circuitpython-htu21d
 cd ~/work/openplotter_opi5
 cp -f blinka_test.py ..
 sudo reboot
