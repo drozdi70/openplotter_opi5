@@ -8,6 +8,7 @@ sudo apt-get install python3-full -y
 sudo apt-get install git -y
 sudo apt-get install python3-pip -y
 sudo apt-get install libgpiod2 python3-libgpiod -y
+sudo rm -rf /usr/lib/python3.11/EXTERNALLY-MANAGED
 sudo pip3 install gpiod  -y
 cd ~/work
 git clone https://github.com/orangepi-xunlong/wiringOP.git -b next
