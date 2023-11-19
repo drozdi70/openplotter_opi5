@@ -1,3 +1,4 @@
+sudo rm /usr/lib/python3.*/EXTERNALLY-MANAGED
 sudo apt install flatpak fakeroot npm -y
 sudo apt install nodejs -y
 cd ~/work
