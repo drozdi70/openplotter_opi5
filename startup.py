@@ -63,22 +63,22 @@ class Check():
 		try: i2c_sensors = eval(data)
 		except: i2c_sensors = {}
 
-		if platform2.isRPI:
-			if platform2.isInstalled('raspi-config'):
-				output = subprocess.check_output('raspi-config nonint get_i2c', shell=True).decode(sys.stdin.encoding)
-				if '1' in output:
-					if i2c_sensors: 
-						msg = _('Please enable I2C interface in Preferences -> Raspberry Pi configuration -> Interfaces.')
-						if not red: red = msg
-						else: red+= '\n    '+msg
-					else:
-						msg = _('I2C disabled')
-						if not black: black = msg
-						else: black+= ' | '+msg
-				else: 
-					msg = _('I2C enabled')
-					if not black: black = msg
-					else: black+= ' | '+msg
+#		if platform2.isRPI:
+#			if platform2.isInstalled('raspi-config'):
+#				output = subprocess.check_output('raspi-config nonint get_i2c', shell=True).decode(sys.stdin.encoding)
+#				if '1' in output:
+#					if i2c_sensors: 
+#						msg = _('Please enable I2C interface in Preferences -> Raspberry Pi configuration -> Interfaces.')
+#						if not red: red = msg
+#						else: red+= '\n    '+msg
+#					else:
+#						msg = _('I2C disabled')
+#						if not black: black = msg
+#						else: black+= ' | '+msg
+#				else: 
+#					msg = _('I2C enabled')
+#					if not black: black = msg
+#					else: black+= ' | '+msg
 
 		if self.conf.get('GENERAL', 'rescue') == 'yes':
 			subprocess.call(['pkill', '-f', 'openplotter-i2c-read'])

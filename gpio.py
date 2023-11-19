@@ -41,8 +41,4 @@ class Gpio:
 			self.used.append({'app':'I2C', 'id':'ground', 'physical':'14'})
 			self.used.append({'app':'I2C', 'id':'power', 'physical':'17'})
 			self.used.append({'app':'I2C', 'id':'ground', 'physical':'20'})
-			self.used.append({'app':'I2C', 'id':'ground', 'physical':'25'})
-			self.used.append({'app':'I2C', 'id':'ground', 'physical':'30'})
-			self.used.append({'app':'I2C', 'id':'ground', 'physical':'34'})
-			self.used.append({'app':'I2C', 'id':'ground', 'physical':'39'})
 		return self.used
