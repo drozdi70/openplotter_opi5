@@ -2,7 +2,13 @@ import board
 import digitalio
 import busio
 
+import sys
+
+import adafruit_platformdetect.constants.boards as ap_board
+from adafruit_blinka.agnostic import board_id, detector
+
 print("Hello blinka!")
+print("Board id is: ",board_id)
 
 # Try to great a Digital input
 #pin = digitalio.DigitalInOut(board.PA6) --not needed now
