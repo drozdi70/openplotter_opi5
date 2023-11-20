@@ -1,6 +1,6 @@
 sudo pip3 install adafruit-circuitpython-ahtx0
 sudo pip3 install adafruit-circuitpython-htu21d
-sudo cd /usr/lib/python3/dist-packages/openplotterI2c
+cd /usr/lib/python3/dist-packages/openplotterI2c
 sudo mv gpio.py gpio.py.ORIG
 sudo mv openplotterI2c.py openplotterI2c.py.ORIG
 sudo mv openplotterI2cRead.py openplotterI2cRead.py.ORIG
