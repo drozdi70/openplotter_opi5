@@ -156,6 +156,15 @@ def main():
 						if i2c_sensors[i]['address']:
 							instances.append({'name':i,'type':'HTU21D','tick':[now,now],'sensor':i2c_sensors[i],'object':HTU21D(muxInstances[i2c_sensors[i]['address']][i2c_sensors[i]['channel']-1])})
 
+                                elif i2c_sensors[i]['type'] == 'AHT20':
+                                        from adafruit_ahtx0 import AHTx0
+                                        if i2c_sensors[i]['channel'] == 0:
+                                                if i2c_sensors[i]['address']:
+                                                        instances.append({'name':i,'type':'AHT20','tick':[now,now],'sensor':i2c_sensors[i],'object':AHTx0(i2c, address=int(i2c_sensors[i]['address'], 16))})
+                                        else:
+                                                if i2c_sensors[i]['address']:
+                                                        instances.append({'name':i,'type':'AHT20','tick':[now,now],'sensor':i2c_sensors[i],'object':AHTx0(muxInstances[i2c_sensors[i]['address']][i2c_sensors[i]['channel']-1])})
+
 				elif i2c_sensors[i]['type'] == 'LPS3X':
 					import adafruit_lps35hw
 					if i2c_sensors[i]['channel'] == 0:
@@ -485,6 +494,35 @@ def main():
 										except: temperatureValue2 = ''
 										Erg = getPaths(Erg,temperatureValue,temperatureValue2,temperatureKey,temperatureOffset,temperatureFactor,temperatureRaw)
 										instances[index]['tick'][1] = time.time()
+
+                          				elif i['type'] == 'AHT20':
+                                				humidityKey = i['sensor']['data'][0]['SKkey']
+                                				temperatureKey = i['sensor']['data'][1]['SKkey']
+                                				if humidityKey:
+                                    					humidityRaw = i['sensor']['data'][0]['raw']
+                                    					humidityRate = i['sensor']['data'][0]['rate']
+                                    					humidityOffset = i['sensor']['data'][0]['offset']
+                                    					humidityFactor = i['sensor']['data'][0]['factor']
+                                    					tick0 = time.time()
+                                    					if tick0 - i['tick'][0] > humidityRate:
+                                        					try: humidityValue = round(i['object'].relative_humidity,1)/100
+                                        					except: humidityValue = i['object'].relative_humidity
+                                        					humidityValue2 = humidityValue
+                                        					Erg = getPaths(Erg,humidityValue,humidityValue2,humidityKey,humidityOffset,humidityFactor,humidityRaw)
+                                        					instances[index]['tick'][0] = time.time()
+                                					if temperatureKey:
+                                    						temperatureRaw = i['sensor']['data'][1]['raw']
+                                    						temperatureRate = i['sensor']['data'][1]['rate']
+                                    						temperatureOffset = i['sensor']['data'][1]['offset']
+                                    						temperatureFactor = i['sensor']['data'][1]['factor']
+                                    						tick0 = time.time()
+                                    					if tick0 - i['tick'][1] > temperatureRate:
+                                        					try: temperatureValue = round(i['object'].temperature,1)
+                                        					except: temperatureValue = i['object'].temperature
+                                        					try:temperatureValue2 = float(temperatureValue)+273.15
+                                        					except: temperatureValue2 = ''
+                                        					Erg = getPaths(Erg,temperatureValue,temperatureValue2,temperatureKey,temperatureOffset,temperatureFactor,temperatureRaw)
+                                        					instances[index]['tick'][1] = time.time()
 
 							elif i['type'] == 'LPS3X':
 								pressureKey = i['sensor']['data'][0]['SKkey']

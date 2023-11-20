@@ -47,6 +47,7 @@ class MyFrame(wx.Frame):
 		self.i2c_sensors_def['BMP280'] = {'magnitudes': [_('pressure'),_('temperature')], 'SKkeys': ['environment.outside.pressure',''], 'multiplexing':True}
 		self.i2c_sensors_def['BMP3XX'] = {'magnitudes': [_('pressure'),_('temperature')], 'SKkeys': ['environment.outside.pressure',''], 'sensorSettings': {'pressure_oversampling':'8', 'temperature_oversampling':'2'}, 'multiplexing':True}
 		self.i2c_sensors_def['HTU21D'] = {'magnitudes': [_('humidity'),_('temperature')], 'SKkeys': ['environment.inside.relativeHumidity',''], 'multiplexing':True}
+		self.i2c_sensors_def['AHT20'] = {'magnitudes': [_('humidity'),_('temperature')], 'SKkeys': ['environment.inside.relativeHumidity','environment.inside.temperature'], 'multiplexing':True}
 		self.i2c_sensors_def['LPS3X'] = {'magnitudes': [_('pressure'),_('temperature')], 'SKkeys': ['environment.outside.pressure',''], 'multiplexing':True}
 		self.i2c_sensors_def['MS5607-02BA03'] = {'magnitudes': [_('pressure'),_('temperature')], 'SKkeys': ['environment.outside.pressure',''], 'multiplexing':False}
 
@@ -455,7 +456,7 @@ class addI2c(wx.Dialog):
 
 		addressesLabel = wx.StaticText(panel, label=_('Detected addresses'))
 		listAddresses = []
-		bus = smbus.SMBus(1)
+		bus = smbus.SMBus(5)
 		for addr in range(3, 178):
 			try:
 				bus.write_quick(addr)
@@ -527,7 +528,7 @@ class addI2c(wx.Dialog):
 				for i in sensorSettings:
 					settings2 += i+' = '+str(sensorSettings[i])+'\n'
 				self.settings.SetValue(settings2)
-			else: self.settings.SetValue('')
+			else: self.settings.SetValue(''):
 		else: self.settings.SetValue('')
 		if 'multiplexing' in self.i2c_sensors_def[self.sensorSelect.GetValue()]:
 			if self.i2c_sensors_def[self.sensorSelect.GetValue()]['multiplexing']: self.channelSelect.Enable()
