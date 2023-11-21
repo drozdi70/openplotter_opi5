@@ -81,22 +81,22 @@ class Check():
 #					else: black+= ' | '+msg
 
 		if self.conf.get('GENERAL', 'rescue') == 'yes':
-			subprocess.call(['pkill', '-f', 'i2c_read'])
+			subprocess.call(['pkill', '-f', 'i2c_read.sh'])
 			msg = _('I2C is in rescue mode')
 			if red: red += '\n   '+msg
 			else: red = msg
 		else:
 			test = subprocess.check_output(['ps','aux']).decode(sys.stdin.encoding)
 			if i2c_sensors:
-				if 'i2c_read' in test: 
+				if 'i2c_read.sh' in test: 
 					msg = _('openplotter-i2c-read running')
 					if not green: green = msg
 					else: green+= ' | '+msg
 				else:
-					subprocess.Popen('openplotter-i2c-read')
+					subprocess.Popen('i2c_read.sh')
 					time.sleep(1)
 					test = subprocess.check_output(['ps','aux']).decode(sys.stdin.encoding)
-					if 'i2c_read' in test: 
+					if 'i2c_read.sh' in test: 
 						msg = _('openplotter-i2c-read running')
 						if not green: green = msg
 						else: green+= ' | '+msg
@@ -105,7 +105,7 @@ class Check():
 						if red: red += '\n   '+msg
 						else: red = msg
 			else:
-				if 'i2c_read' in test: 
+				if 'i2c_read.sh' in test: 
 					msg = _('openplotter-i2c-read running')
 					if red: red += '\n   '+msg
 					else: red = msg
