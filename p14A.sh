@@ -43,3 +43,6 @@ dpkg-buildpackage -b
 cd ..
 sudo dpkg -i openplotter-sdr-vhf_3.0.9-stable_all.deb
 sudo sdrVhfPostInstall
+cd ~/work/openplotter_opi5
+sudo mv /usr/lib/python3/dist-packages/openplotterSdrVhf/startup.py /usr/lib/python3/dist-packages/openplotterSdrVhf/startup.py.ORIG
+sudo cp -pf  startup.py.sdrvhf /usr/lib/python3/dist-packages/openplotterSdrVhf/startup.py
