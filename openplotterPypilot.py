@@ -265,7 +265,7 @@ class pypilotFrame(wx.Frame):
 		self.run('openplotter-settings')
 
 	def OnToolCalibration(self,e):
-		self.run('pypilot_calibration')
+		self.run('vglrun pypilot_calibration')
 
 	def OnToolScope(self,e):
 		self.run('pypilot_scope')
