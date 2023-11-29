@@ -788,14 +788,26 @@ Found 2 device(s):
 1: SDRPLAY, RSP1A, SN: 1804066095
 
 
-orangepi@orangepi5:~/work$ more aiscatcher.conf
- -d AIS00001
+orangepi@orangepi5:~/work$ more aiscatcher.conf (sdrplay)
+ -d 1804066095
  -v 10
  -M DT
  -gs LNASTATE 3 AGC on
- -s 2304k
+ -s 2304K
  -u 127.0.0.1 10110
  -a 192K
+ -q
+
+
+
+orangepi@orangepi5:~/work$ more aiscatcher.conf (RTLSDR3)
+ -d AIS00001
+ -v 10
+ -M DT
+ -s 1536K
+ -u 127.0.0.1 10110
+ -a 192K
+ -q
 
 chmod 644 aiscatcher.conf
 
@@ -1255,6 +1267,9 @@ as orangepi run ./p17.sh in /home/orangepi/work/openplotter_opi5
 if in some points installation fails please re-try scripts execution :)
 
 Below just to consier - not included in installation :)
+
+good to run block.sh to hold packages openploter future upgrades
+
 
 !!! issue with CMA
 extraargs=cma=... sunxi_ve_mem_reserve=... in ArmbianEnv.txt
